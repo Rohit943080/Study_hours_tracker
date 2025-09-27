@@ -17,10 +17,10 @@ def append_study_time(file_path: Path):
         with open(file_path, "a") as f:
             f.write(f"\n{date} - {time}")
 
-        print("✅ Study time appended successfully!")
+        print(" Study time appended successfully!")
 
     except Exception as e:
-        print("❌ Could not append:", e)
+        print(" Could not append:", e)
 
 
 def calculate_total_hours(file_path: Path):
@@ -36,13 +36,14 @@ def calculate_total_hours(file_path: Path):
     # Convert to timedelta
     time_delta = pd.to_timedelta(times, errors="coerce")
 
-    print("\n⏳ All study sessions:")
+    print("\n All study sessions:")
     print(time_delta)
 
     total_hours = round(time_delta.sum().total_seconds() / 3600, 2)
-    print(f"\n📊 Total study time = {total_hours} hours")
+    print(f"\n Total study time = {total_hours} hours")
 
 
 if __name__ == "__main__":
     append_study_time(FILE_PATH)
     calculate_total_hours(FILE_PATH)
+
